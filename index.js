@@ -1,5 +1,18 @@
 let canvas = document.getElementById('canvas')
-let eraser = document.getElementById('eraser')
+
+let penBtn = document.getElementById('penBtn')
+let eraserBtn = document.getElementById('eraserBtn')
+let deleteBtn = document.getElementById('deleteBtn')
+let downloadBtn = document.getElementById('downloadBtn')
+
+let blackBtn = document.querySelector('.black')
+
+let redBtn = document.querySelector('.red')
+let greenBtn = document.querySelector('.green')
+let brownBtn = document.querySelector('.brown')
+let blueBtn = document.querySelector('.blue')
+let yellowBtn = document.querySelector('.yellow')
+console.log(redBtn)
 
 setCanvasSize(canvas)
 let ctx = canvas.getContext('2d');
@@ -32,7 +45,7 @@ canvas.onmousedown = function (e) {
   // drawCircle(x, y, 10)
   if (eraserOpened) {
     eraserUsed = true
-    ctx.clearRect(x - 5, y - 5, 10, 10);
+    ctx.clearRect(x - 10, y - 10, 20, 20);
   } else if (penOpened) {
     penUsed = true
   }
@@ -44,7 +57,7 @@ canvas.onmousemove = function (e) {
 
   if (eraserOpened && eraserUsed) {
 
-    ctx.clearRect(x - 5, y - 5, 10, 10);
+    ctx.clearRect(x - 10, y - 10, 20, 20);
 
   } else if (penOpened && penUsed) {
 
@@ -62,7 +75,7 @@ canvas.onmouseup = function () {
   eraserUsed = false
 }
 
-canvas.ontouchstart = function(e){
+canvas.ontouchstart = function (e) {
   console.log(e)
   let x = e.touches[0].clientX
   let y = e.touches[0].clientY
@@ -73,18 +86,19 @@ canvas.ontouchstart = function(e){
   // drawCircle(x, y, 10)
   if (eraserOpened) {
     eraserUsed = true
-    ctx.clearRect(x - 5, y - 5, 10, 10);
+    ctx.clearRect(x - 10, y - 10, 20, 20);
   } else if (penOpened) {
     penUsed = true
   }
 }
-canvas.ontouchmove = function (e) {
+canvas.addEventListener('touchmove', function (e) {
+  e.preventDefault() // 阻止默认的处理方式(阻止下拉滑动的效果)
   let x = e.touches[0].clientX
   let y = e.touches[0].clientY
 
   if (eraserOpened && eraserUsed) {
 
-    ctx.clearRect(x - 5, y - 5, 10, 10);
+    ctx.clearRect(x - 10, y - 10, 20, 20);
 
   } else if (penOpened && penUsed) {
 
@@ -95,7 +109,28 @@ canvas.ontouchmove = function (e) {
     prePoint.y = currentPoint.y
 
   }
-}
+}, { passive: false }) // passive 参数不能省略，用来兼容ios和android
+
+// canvas.ontouchmove = function (e) {
+//   e.preventDefault();
+//
+//   let x = e.touches[0].clientX
+//   let y = e.touches[0].clientY
+//
+//   if (eraserOpened && eraserUsed) {
+//
+//     ctx.clearRect(x - 5, y - 5, 10, 10);
+//
+//   } else if (penOpened && penUsed) {
+//
+//     currentPoint.x = x
+//     currentPoint.y = y
+//     drawLine(prePoint.x, prePoint.y, currentPoint.x, currentPoint.y)
+//     prePoint.x = currentPoint.x
+//     prePoint.y = currentPoint.y
+//
+//   }
+// }
 canvas.ontouchend = function () {
   penUsed = false
   eraserUsed = false
@@ -123,7 +158,7 @@ function drawCircle(x, y, radius) {
 function drawLine(startX, startY, endX, endY) {
   ctx.beginPath();
   ctx.moveTo(startX, startY);
-  ctx.strokeStyle = 'black'
+  // ctx.strokeStyle = 'black'
   ctx.lineWidth = 5
   ctx.lineTo(endX, endY);
   ctx.stroke()
@@ -131,12 +166,65 @@ function drawLine(startX, startY, endX, endY) {
 }
 
 
-eraser.onclick = function () {
-  penOpened = !penOpened
-  eraserOpened = !eraserOpened
-  if (eraserOpened) {
-    eraser.innerText = '取消橡皮擦'
-  } else {
-    eraser.innerText = '开启橡皮擦'
-  }
+eraserBtn.onclick = function () {
+  penOpened = false
+  eraserOpened = true
+  eraserBtn.classList.add('active')
+  penBtn.classList.remove('active')
+}
+penBtn.onclick = function () {
+  penOpened = true
+  eraserOpened = false
+  eraserBtn.classList.remove('active')
+  penBtn.classList.add('active')
+}
+deleteBtn.onclick = function () {
+  ctx.clearRect(0,0,canvas.width,canvas.height)
+}
+downloadBtn.onclick = function () {
+  let a = document.createElement('a')
+  a.setAttribute("href", canvas.toDataURL("image/png"))
+  a.download ='我的图画.png';
+  a.target = '_blank'
+  document.body.appendChild(a);
+  // a.click()
+  var clickevent = document.createEvent('MouseEvents');
+  clickevent.initEvent('click', true, false);
+  a.dispatchEvent(clickevent);
+}
+function activeColor(dom,className){
+  dom.parentNode.childNodes.forEach(function (item) {
+    if (item.nodeType == 1){
+      if (item.className.indexOf(className) > -1){
+        item.classList.add('active')
+      }else{
+        item.classList.remove('active')
+      }
+    }
+  })
+}
+
+blackBtn.onclick = function () {
+  ctx.strokeStyle = 'black'
+  activeColor(this,'black')
+}
+redBtn.onclick = function () {
+  ctx.strokeStyle = 'red'
+  activeColor(this,'red')
+}
+greenBtn.onclick = function () {
+  ctx.strokeStyle = 'green'
+  activeColor(this,'green')
+}
+brownBtn.onclick = function () {
+  ctx.strokeStyle = 'brown'
+  activeColor(this,'brown')
+}
+blueBtn.onclick = function () {
+  ctx.strokeStyle = 'blue'
+  activeColor(this,'blue')
+}
+yellowBtn.onclick = function () {
+  ctx.strokeStyle = 'yellow'
+  activeColor(this,'yellow')
 }

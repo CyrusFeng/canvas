@@ -4,28 +4,122 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <link rel="stylesheet" href="./reset.css">
     <style>
-        html,body{
+        html, body {
             margin: 0;
             padding: 0;
             font-size: 0;
         }
-        body{
+
+        body {
             overflow: hidden;
         }
-        #eraser{
+
+        #canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .main-btn {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
             position: absolute;
-            left: 10px;
-            bottom: 10px;
-            font-size: 20px;
+            left: 0.1rem;
+            bottom: 0.1rem;
+        }
+
+        .main-btn .icon {
+            width: 0.3rem;
+            height: 0.3rem;
+            margin-left: 0.2rem;
+            transition: all 0.3s;
+            /*vertical-align: -0.15em;*/
+            /*fill: currentColor;*/
+            /*overflow: hidden;*/
+        }
+
+        .main-btn .icon.active {
+            transform: scale(1.2);
+            fill: red;
+        }
+
+        .color-wrap {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+            position: absolute;
+            left: 0.16rem;
+            top: 0.1rem;
+        }
+
+        .color-wrap > div {
+            margin-bottom: 0.12rem;
+            width: 0.24rem;
+            height: 0.24rem;
+            border-radius: 50%;
+        }
+        .color-wrap > div.active{
+            box-shadow: 0 0 0.1rem rgba(0,0,0,1);
+        }
+
+        .color-wrap > .black {
+            background-color: black;
+        }
+        .color-wrap > .red {
+            background-color: red;
+        }
+        .color-wrap > .green {
+            background-color: green;
+        }
+        .color-wrap > .brown {
+            background-color: brown;
+        }.color-wrap > .blue {
+             background-color: blue;
+         }
+        .color-wrap > .yellow {
+            background-color: yellow;
+        }
+        .tips{
+            margin-left: 0.2rem;
+            width: 10em;
+            font-size: 0.08rem;
         }
     </style>
 </head>
 <body>
-    <canvas id="canvas">
-        <p>你的浏览器不支持Canvas</p>
-    </canvas>
-    <button id="eraser">开启橡皮擦</button>
-    <script src="index.js"></script>
+<canvas id="canvas">
+    <p>你的浏览器不支持Canvas</p>
+</canvas>
+<div class="main-btn">
+    <svg id="penBtn" class="icon active" aria-hidden="true">
+        <use xlink:href="#icon-pen"></use>
+    </svg>
+    <svg id="eraserBtn" class="icon" aria-hidden="true">
+        <use xlink:href="#icon-eraser"></use>
+    </svg>
+    <svg id="deleteBtn" class="icon" aria-hidden="true">
+        <use xlink:href="#icon-delete"></use>
+    </svg>
+    <svg id="downloadBtn" class="icon" aria-hidden="true">
+        <use xlink:href="#icon-download"></use>
+    </svg>
+    <div class="tips">移动端点击下载按钮跳转后手动保存</div>
+</div>
+<div class="color-wrap">
+    <div class="black active"></div>
+    <div class="red"></div>
+    <div class="green"></div>
+    <div class="brown"></div>
+    <div class="blue"></div>
+    <div class="yellow"></div>
+</div>
+<!--<button id="eraser">开启橡皮擦</button>-->
+<script src="rem.js"></script>
+<script src="index.js"></script>
+<script src="//at.alicdn.com/t/font_1079629_uxyh33wybxk.js"></script>
 </body>
 </html>
