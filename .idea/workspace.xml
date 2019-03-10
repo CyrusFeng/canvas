@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83b92e85-d397-4c74-a70e-1a500f04861c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/rem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reset.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,8 +19,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="109" column="31" selection-start-line="109" selection-start-column="31" selection-end-line="109" selection-end-column="31" />
+            <state relative-caret-position="218">
+              <caret line="120" column="20" selection-start-line="120" selection-start-column="17" selection-end-line="120" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -32,7 +28,7 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1461">
+            <state relative-caret-position="1671">
               <caret line="186" column="19" selection-start-line="186" selection-start-column="19" selection-end-line="186" selection-end-column="19" />
             </state>
           </provider>
@@ -60,6 +56,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>document</find>
+      <find>rem</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -95,9 +92,9 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="430" />
+    <option name="x" value="176" />
     <option name="y" value="57" />
-    <option name="width" value="813" />
+    <option name="width" value="1067" />
     <option name="height" value="793" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -160,25 +157,25 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1552101211139</updated>
-      <workItem from="1552101212359" duration="15477000" />
+      <workItem from="1552101212359" duration="15863000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15477000" />
+    <option name="totallyTimeSpent" value="15863000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="430" y="57" width="813" height="793" extended-state="0" />
+    <frame x="176" y="57" width="1067" height="793" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24873738" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18833652" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.3275862" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.3275862" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -197,6 +194,13 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1671">
+          <caret line="186" column="19" selection-start-line="186" selection-start-column="19" selection-end-line="186" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/rem.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -204,17 +208,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1461">
-          <caret line="186" column="19" selection-start-line="186" selection-start-column="19" selection-end-line="186" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="109" column="31" selection-start-line="109" selection-start-column="31" selection-end-line="109" selection-end-column="31" />
+        <state relative-caret-position="218">
+          <caret line="120" column="20" selection-start-line="120" selection-start-column="17" selection-end-line="120" selection-end-column="20" />
         </state>
       </provider>
     </entry>
